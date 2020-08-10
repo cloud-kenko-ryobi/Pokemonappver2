@@ -16,8 +16,8 @@
             <tr v-for="item in myData" v-bind:key="item.id">
                 <td>{{item.id}}</td>
                 <td>{{item.name.japanese}}</td>
-                <td></td>
-                <td></td>
+                <td>{{item.base.HP}}</td>
+                <td>{{item.base.Attack}}</td>
             </tr>
         </tbody>
       </table>      
