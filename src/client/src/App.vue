@@ -7,26 +7,29 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>名前</th>
+                <th>なまえ</th>
                 <th>サムネイル</th>
-                <th>え</th>
+                <th>イメージ</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="item in myData" v-bind:key="item.id">
-                <td>{{item.id}}</td>
-                <td>{{item.name.japanese}}</td>
-                <td>{{item.base.HP}}</td>
-                <td>{{item.base.Attack}}</td>
+                <td class="table-id">{{item.id}}</td>
+                <td class="table-name">{{item.name.japanese}}</td>
+                <td><img v-bind:src="createThumbnailUrl(item)" crossorigin="anonymous"/></td>
+                <td><img v-bind:src="createImagelUrl(item)" crossorigin="anonymous" /></td>
+                <!-- <td><img v-bimd:src="createImagelUrl(item)" crossorigin="anonymous" /></td> -->
             </tr>
         </tbody>
-      </table>      
+      </table>
     </div>
   </div>
-</template>]
+</template>
 
 <script>
-import axios from  "axios"
+const server = 'http://localhost:5000/'
+
+import axios from "axios"
 
 export default {
   name: "app",
@@ -37,9 +40,19 @@ export default {
       }
   },
   created: function() {
-        axios.get('http://localhost:5000/pokeapi/')
+        axios.get(server + 'pokeapi/')
         .then(response => {
-          this.myData = response
+          // for (var i = 0; i < response.data.length; i++){
+          //   response.data[i].thumbnail = server + 'assets/thumbnails/' + ('000' + item.id).slice(-3) + item.name.english + '.png'
+          //   response.data[i].image = 'assets/images/' + ('000' + item.id).slice(-3) + item.name.english + '.png'
+          // }
+          this.myData = Array(response.data.length - 1)
+          for (var i = 0; i < response.data.length; i++) {
+            let item = response.data[i]
+            item.thumbnail = server + 'assets/thumbnails/' + ('000' + item.id).slice(-3) + item.name.english + '.png'
+            item.image = server + 'assets/images/' + ('000' + item.id).slice(-3) + item.name.english + '.png'
+            this.myData[i] = item
+          }
         })
         .error(error => {
           alert(error)
@@ -55,7 +68,15 @@ export default {
         // .catch( error => {
         //     alert(error)
         //     this.error = error
-        // });    
+        // });
+  },
+  methods: {
+    createThumbnailUrl: function(item){
+      return `https://www.pkparaiso.com/imagenes/shuffle/sprites/${('000' + item.id).slice(-3)}.png`
+    },
+    createImagelUrl: function(item){
+      return server + 'assets/thumbnails/' + ('000' + item.id).slice(-3) + item.name.english + '.png'
+    }
   }
 }
 </script>
@@ -80,5 +101,13 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.table tbody td{
+  text-align: center;
+  vertical-align: middle;
+}
+.table tbody td.table-id, td.table-name{
+  font-size: 1.5em;
 }
 </style>

@@ -33,7 +33,7 @@ namespace PokeApi.Controllers
             var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Models.Pokemon>));
             
             string jsonString;
-            using (var reader = new System.IO.StreamReader(@"/Users/takahiro/Projects/PokemonApp/pokemon.json/pokedex.json"))
+            using (var reader = new System.IO.StreamReader(@"pokemon.json/pokedex.json"))
             {
                 jsonString = reader.ReadToEnd();
             }
@@ -47,7 +47,7 @@ namespace PokeApi.Controllers
             var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Models.Pokemon>));
             
             string jsonString;
-            using (var reader = new System.IO.StreamReader(@"/Users/takahiro/Projects/PokemonApp/pokemon.json/pokedex.json"))
+            using (var reader = new System.IO.StreamReader(@"pokemon.json/pokedex.json"))
             {
                 jsonString = reader.ReadToEnd();
             }

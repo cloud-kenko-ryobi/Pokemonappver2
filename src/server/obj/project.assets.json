@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/takahiro/Projects/dotnet/PokeApi/PokeApi.csproj",
+      "projectUniqueName": "/Users/takahiro/Projects/PokemonAppVer2/src/server/PokeApi.csproj",
       "projectName": "PokeApi",
-      "projectPath": "/Users/takahiro/Projects/dotnet/PokeApi/PokeApi.csproj",
+      "projectPath": "/Users/takahiro/Projects/PokemonAppVer2/src/server/PokeApi.csproj",
       "packagesPath": "/Users/takahiro/.nuget/packages/",
-      "outputPath": "/Users/takahiro/Projects/dotnet/PokeApi/obj/",
+      "outputPath": "/Users/takahiro/Projects/PokemonAppVer2/src/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/takahiro/.config/NuGet/NuGet.Config"

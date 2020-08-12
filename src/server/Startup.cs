@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -51,6 +53,13 @@ namespace PokeApi
             app.UseRouting();
 
             app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(env.ContentRootPath, "pokemon.json")),
+                RequestPath = "/assets"
+            });
 
             app.UseAuthorization();
 

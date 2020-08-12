@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QDBNQZSoj/MhJ4sviwc8Uh8gjTR0yQDTBDUIl3ook/HG25F7ewBvAi/G/uhJM27wjQtvXlOwOFWCVYjkI9D1UQ==",
+  "dgSpecHash": "Fr7Dxkl1wMc1lkHacbFAyEg0qMrUi4GWGhmUh4BlE7GEfWKxZycz5tp8yLhz/vZR5ipNwcCBIm2Tt70PSwdVQw==",
   "success": true,
-  "projectFilePath": "/Users/takahiro/Projects/dotnet/PokeApi/PokeApi.csproj",
+  "projectFilePath": "/Users/takahiro/Projects/PokemonAppVer2/src/server/PokeApi.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
