@@ -70,12 +70,12 @@ namespace PokeApi.Controllers
             {
                 _types = getPoketypes();
             }
-            var applicableTypes = _types.Where(item => item.english.Equals(type)).FirstOrDefault();
-            if (applicableTypes == null)
+            var applicableType = _types.Where(item => item.english.Equals(type)).FirstOrDefault();
+            if (applicableType == null)
             {
                 return type;
             }
-            return applicableTypes.japanese;
+            return applicableType .japanese;
             
         }
         private List<Models.PokeType> getPoketypes()

@@ -20,7 +20,7 @@
               </tr>
               <tr>
                 <th>タイプ</th>
-                <td>{{ this.item.type.join() }}</td>
+                <td>{{ this.item.type.join("、") }}</td>
               </tr>
               <tr>
                 <th>HP</th>
@@ -62,13 +62,23 @@ export default {
   },
   components: Home,
   created: function(){
-        axios.get(server + 'pokeapi/' + this.$route.params.id)
-        .then(response => {
-          this.item = response.data;
-        })
-        .error(error => {
-          alert(error)
-        })
+    axios.get(server + 'pokeapi/' + this.$route.params.id)
+    .then(response => {
+      this.item = response.data;
+      const text = this.item.name.japanese + ". " + this.item.type.join() + 'タイプ'
+      const uttr = new SpeechSynthesisUtterance(text)
+      var voice = speechSynthesis.getVoices().find(function(voice){
+        return voice.name === 'Google 日本語';
+      });
+      // 取得できた場合のみ適用する
+      if(voice){
+        uttr.voice = voice;
+      }
+      speechSynthesis.speak(uttr)
+    })
+    .error(error => {
+      alert(error)
+    })
   },
   methods: {
     createImagelUrl: function(item){

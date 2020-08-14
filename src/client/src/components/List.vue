@@ -15,6 +15,7 @@
               <!-- <td class="table-name"><router-link ：to="{ name:'About/', params: {id: item.id}}">{{item.name.japanese}}</router-link></td> -->
               <td class="table-name"><router-link :to="`About/${item.id}`">{{item.name.japanese}}</router-link></td>
               <td><img v-bind:src="createThumbnailUrl(item)"></td>
+              <!-- <td class="table-image"><router-link :to="`About/${item.id}`" v-bind:style="`background-image:${createThumbnailUrl(item)}`"></router-link></td> -->
               <!-- <td><img v-bind:src="createImagelUrl(item)" crossorigin="anonymous" /></td> -->
               <!-- <td><img v-bimd:src="createImagelUrl(item)" crossorigin="anonymous" /></td> -->
           </tr>
