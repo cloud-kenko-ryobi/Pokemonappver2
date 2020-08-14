@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.ItemProperties.PokeApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/pokeapi.cs">
     <Files>
-      <File FileName="Startup.cs" Line="33" Column="14" />
-      <File FileName="Models/Pokemon.cs" />
-      <File FileName="Controllers/pokeapi.cs" Line="61" Column="14" />
+      <File FileName="Startup.cs" Line="25" Column="1" />
+      <File FileName="Models/Pokemon.cs" Line="13" Column="1" />
+      <File FileName="Controllers/pokeapi.cs" Line="22" Column="44" />
       <File FileName="Properties/launchSettings.json" />
-      <File FileName="Models/PokeType.cs" />
+      <File FileName="Models/PokeType.cs" Line="11" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,10 +17,14 @@
                 <Node name="pokeapi.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
+              <Node name="pokemon.json" expanded="True" />
               <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
