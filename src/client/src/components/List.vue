@@ -3,19 +3,19 @@
     <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
       <thead>
           <tr>
-              <th>ID</th>
+              <th>ばんごう</th>
               <th>なまえ</th>
               <th>サムネイル</th>
-              <th>イメージ</th>
+              <!-- <th>イメージ</th> -->
           </tr>
       </thead>
       <tbody>
           <tr v-for="item in myData" v-bind:key="item.id">
-              <td class="table-id">{{item.id}}</td>
+              <td class="table-id"><router-link :to="`About/${item.id}`">{{item.id}}</router-link></td>
               <!-- <td class="table-name"><router-link ：to="{ name:'About/', params: {id: item.id}}">{{item.name.japanese}}</router-link></td> -->
               <td class="table-name"><router-link :to="`About/${item.id}`">{{item.name.japanese}}</router-link></td>
-              <td><img v-bind:src="createThumbnailUrl(item)" crossorigin="anonymous"/></td>
-              <td><img v-bind:src="createImagelUrl(item)" crossorigin="anonymous" /></td>
+              <td><img v-bind:src="createThumbnailUrl(item)"></td>
+              <!-- <td><img v-bind:src="createImagelUrl(item)" crossorigin="anonymous" /></td> -->
               <!-- <td><img v-bimd:src="createImagelUrl(item)" crossorigin="anonymous" /></td> -->
           </tr>
       </tbody>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-const server = 'http://localhost:5000/'
+const server = 'http://192.168.2.180:5000/'
 
 import axios from 'axios'
 import About from '../views/About'
