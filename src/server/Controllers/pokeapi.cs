@@ -15,11 +15,6 @@ namespace PokeApi.Controllers
     [ApiController]
     public class pokeapiController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<pokeapiController> _logger;
 
         public pokeapiController(ILogger<pokeapiController> logger)
@@ -41,8 +36,8 @@ namespace PokeApi.Controllers
         }
 
 
-        [HttpGet("{name}")]
-        public IEnumerable<Models.Pokemon> Get(string name)
+        [HttpGet("{id}")]
+        public IEnumerable<Models.Pokemon> Get(int id)
         {
             var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Models.Pokemon>));
             
@@ -52,7 +47,7 @@ namespace PokeApi.Controllers
                 jsonString = reader.ReadToEnd();
             }
             return JsonUtility.Deserialize<IEnumerable<Models.Pokemon>>(jsonString)
-            .Where(e => (e.name.japanese.IndexOf(name) >= 0)).ToArray();
+            .Where(e => (e.id.Equals(id))).ToArray();
         }
     }
 
