@@ -20,7 +20,7 @@
               </tr>
               <tr>
                 <th>タイプ</th>
-                <td>{{ this.item.type[0] }}</td>
+                <td>{{ this.item.type.join() }}</td>
               </tr>
               <tr>
                 <th>HP</th>
@@ -64,7 +64,7 @@ export default {
   created: function(){
         axios.get(server + 'pokeapi/' + this.$route.params.id)
         .then(response => {
-          this.item = response.data[0];
+          this.item = response.data;
         })
         .error(error => {
           alert(error)

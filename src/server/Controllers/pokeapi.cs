@@ -15,6 +15,8 @@ namespace PokeApi.Controllers
     [ApiController]
     public class pokeapiController : ControllerBase
     {
+        private List<Models.PokeType> _types = null;
+
         private readonly ILogger<pokeapiController> _logger;
 
         public pokeapiController(ILogger<pokeapiController> logger)
@@ -32,22 +34,59 @@ namespace PokeApi.Controllers
             {
                 jsonString = reader.ReadToEnd();
             }
-            return JsonUtility.Deserialize<IEnumerable<Models.Pokemon>>(jsonString).ToArray();
+            var pokeomns = JsonUtility.Deserialize<IEnumerable<Models.Pokemon>>(jsonString);
+            foreach (var pokemon in pokeomns)
+            {
+                for (var i = 0; i < pokemon.type.Length; i++)
+                {
+                    pokemon.type[i] = translateType(pokemon.type[i]);
+                }
+            }
+            return pokeomns.ToArray();
         }
 
 
         [HttpGet("{id}")]
-        public IEnumerable<Models.Pokemon> Get(int id)
+        public Models.Pokemon Get(int id)
         {
-            var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Models.Pokemon>));
-            
+            var serializer = new DataContractJsonSerializer(typeof(List<Models.Pokemon>));
+
             string jsonString;
             using (var reader = new System.IO.StreamReader(@"pokemon.json/pokedex.json"))
             {
                 jsonString = reader.ReadToEnd();
             }
-            return JsonUtility.Deserialize<IEnumerable<Models.Pokemon>>(jsonString)
-            .Where(e => (e.id.Equals(id))).ToArray();
+            var pokemon = JsonUtility.Deserialize<List<Models.Pokemon>>(jsonString).Where(item => item.id.Equals(id)).ToList()[0];
+            for (var i = 0; i < pokemon.type.Length; i++)
+            {
+                pokemon.type[i] = translateType(pokemon.type[i]);
+            }
+            return pokemon;
+        }
+
+        private string translateType(string type)
+        {
+            if (_types == null)
+            {
+                _types = getPoketypes();
+            }
+            var applicableTypes = _types.Where(item => item.english.Equals(type)).FirstOrDefault();
+            if (applicableTypes == null)
+            {
+                return type;
+            }
+            return applicableTypes.japanese;
+            
+        }
+        private List<Models.PokeType> getPoketypes()
+        {
+            var serializer = new DataContractJsonSerializer(typeof(List<Models.PokeType>));
+            string jsonString;
+            using (var reader = new System.IO.StreamReader(@"pokemon.json/types.json"))
+            {
+                jsonString = reader.ReadToEnd();
+            }
+            return JsonUtility.Deserialize<List<Models.PokeType>>(jsonString);
         }
     }
 
