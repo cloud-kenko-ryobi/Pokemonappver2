@@ -35,13 +35,13 @@ namespace PokeApi.Controllers
                 jsonString = reader.ReadToEnd();
             }
             var pokeomns = JsonUtility.Deserialize<IEnumerable<Models.Pokemon>>(jsonString);
-            foreach (var pokemon in pokeomns)
-            {
-                for (var i = 0; i < pokemon.type.Length; i++)
-                {
-                    pokemon.type[i] = translateType(pokemon.type[i]);
-                }
-            }
+            //foreach (var pokemon in pokeomns)
+            //{
+            //    for (var i = 0; i < pokemon.type.Length; i++)
+            //    {
+            //        pokemon.type[i] = translateType(pokemon.type[i]);
+            //    }
+            //}
             return pokeomns.ToArray();
         }
 

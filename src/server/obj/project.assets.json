@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/Users/takahiro/.nuget/packages/": {}
+    "/Users/t.hata/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/takahiro/Projects/PokemonAppVer2/src/server/PokeApi.csproj",
+      "projectUniqueName": "/Users/t.hata/projects/PokemonAppVer2/src/server/PokeApi.csproj",
       "projectName": "PokeApi",
-      "projectPath": "/Users/takahiro/Projects/PokemonAppVer2/src/server/PokeApi.csproj",
-      "packagesPath": "/Users/takahiro/.nuget/packages/",
-      "outputPath": "/Users/takahiro/Projects/PokemonAppVer2/src/server/obj/",
+      "projectPath": "/Users/t.hata/projects/PokemonAppVer2/src/server/PokeApi.csproj",
+      "packagesPath": "/Users/t.hata/.nuget/packages/",
+      "outputPath": "/Users/t.hata/projects/PokemonAppVer2/src/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/takahiro/.nuget/NuGet/NuGet.Config"
+        "/Users/t.hata/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
       }
     }
   }

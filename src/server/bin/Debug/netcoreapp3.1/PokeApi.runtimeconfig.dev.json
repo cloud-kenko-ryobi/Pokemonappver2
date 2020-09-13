@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/takahiro/.dotnet/store/|arch|/|tfm|",
-      "/Users/takahiro/.nuget/packages"
+      "/Users/t.hata/.dotnet/store/|arch|/|tfm|",
+      "/Users/t.hata/.nuget/packages"
     ]
   }
 }

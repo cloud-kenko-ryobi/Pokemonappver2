@@ -9,7 +9,7 @@
     </header>
     <section class="section">
       <div class="container">
-        <h1 class="title">{{ this.item.name.japanese }}</h1>
+        <h1 class="title">{{ this.item.name.japanese.toHirogana() }}</h1>
         <img v-bind:src="createImagelUrl(item)" crossorigin="anonymous" />
         <div class="table-contaner">
           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-const server = 'http://192.168.2.180:5000/'
+const server = 'http://localhost:5000/'
 
 import axios from "axios"
 import Home from "../views/Home"
@@ -62,16 +62,20 @@ export default {
   },
   components: Home,
   created: function(){
+    String.prototype.toHirogana = function(){
+      return this.replace(/[\u30a1-\u30f6]/g, match => {
+        const chr = match.charCodeAt(0) - 0x60
+        return String.fromCharCode(chr)
+      })
+    }
     axios.get(server + 'pokeapi/' + this.$route.params.id)
     .then(response => {
       this.item = response.data;
-      const text = this.item.name.japanese + ". " + this.item.type.join() + 'タイプ'
+      const text = this.item.name.japanese.toHirogana() + ". " + this.item.type.join() + 'タイプ'
       const uttr = new SpeechSynthesisUtterance(text)
-      var voice = speechSynthesis.getVoices().find(function(voice){
-        return voice.name === 'Google 日本語';
-      });
+      var voice = speechSynthesis.getVoices().find(voice => voice.name === 'Google 日本語')
       // 取得できた場合のみ適用する
-      if(voice){
+      if (voice){
         uttr.voice = voice;
       }
       speechSynthesis.speak(uttr)
