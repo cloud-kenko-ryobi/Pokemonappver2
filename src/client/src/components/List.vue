@@ -58,7 +58,6 @@ const server = 'http://localhost:5000/'
 import axios from 'axios'
 import About from '../views/About'
 
-
 export default {
   name: 'List',
   data: function(){

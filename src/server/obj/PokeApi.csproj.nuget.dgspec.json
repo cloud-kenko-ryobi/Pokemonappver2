@@ -14,7 +14,7 @@
         "outputPath": "/Users/t.hata/projects/PokemonAppVer2/src/server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/t.hata/.nuget/NuGet/NuGet.Config"
+          "/Users/t.hata/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
