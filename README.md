@@ -21,3 +21,9 @@ npm install
 Use C# and Asp.Net Core WebApi.
 
 The Directory is: `src/server`.
+
+## About PokemonJson
+
+
+The data of Pokemon uses the following.  
+[fanzeyi/pokemon.json](https://github.com/fanzeyi/pokemon.json)
